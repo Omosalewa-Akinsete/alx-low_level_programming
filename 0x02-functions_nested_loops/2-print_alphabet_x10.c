@@ -2,11 +2,10 @@
 
 /**
  * print_alphabet_x10 - make print_alphabet_x10
- * Return: void
+ * Return:void
  */
-
 void print_alphabet_x10(void)
-{	
+{
 	char c;
 	int i;
 
