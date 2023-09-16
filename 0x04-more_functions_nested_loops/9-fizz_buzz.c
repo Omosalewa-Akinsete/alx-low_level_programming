@@ -1,35 +1,42 @@
-#include "main."
-
+#include <stdio.h>
 /**
- * main - prints the number from 1 - 100, but for mult of 3 & 5 print Fizz Buzz
+ * main - check the code for Holberton School students.
  *
- * Return: Always 0 (Success)
- **/
+ * Return: void.
+ */
 
 int main(void)
 {
-	int i;
 
-	for (i = 1; i < 100; i++)
-	{
-	if ((i % 3) == 0 && (i % 5) == 0)
-	{
-	printf("FizzBuzz ");
-	}
-	else if (i % 3 == 0)
-	{
-	printf("Fizz ");
-	}
-	else if (i % 5 == 0)
-	{
-	printf("Buzz ");
-	}
-	else
-	{
-	printf("%d ", i);
-	}
+	int i = 1;
 
+	while (i <= 100)
+	{
+		if (i % 3 == 0 && i % 5 == 0)
+		{
+			printf("FizzBuzz");
+		}
+		else if (i % 3 == 0)
+		{
+			printf("Fizz");
+		}
+		else if (i % 5 == 0)
+		{
 			printf("Buzz");
-				printf("\n");
-					return (0);
+		}
+		else
+		{
+			printf("%i", i);
+		}
+
+		if (i != 100)
+		{
+			putchar(' ');
+		}
+
+		i++;
+	}
+	putchar('\n');
+	return (0);
+
 }
