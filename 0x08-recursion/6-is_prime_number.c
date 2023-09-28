@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * prime_a -  Returns 1 if the input integer is a prime number, otherwise return 0.
+ * prime_a -  Returns 1 if the input integer is a prime number
  * @a: The string to be printed.
  * @b: The string to be printed.
  * Return: 0
@@ -19,7 +19,7 @@ int prime_a(int a, int b)
 }
 
 /**
- * is_prime_number -  Returns 1 if the input integer is a prime number, otherwise return 0.
+ * is_prime_number -  Returns 1 if the input integer is a prime number
  * @n: The sring to be printed.
  * Return: 0
  */
