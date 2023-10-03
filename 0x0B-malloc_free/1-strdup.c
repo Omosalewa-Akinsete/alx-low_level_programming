@@ -1,13 +1,13 @@
 #include "main.h"
 #include <stdlib.h>
-/*
- * _strdup - Main Entry
+/**
+ * _strdup - Returns a pointer to a newly allocated space in memory
  * @str: input
  * Return: 0
  */
 char *_strdup(char *str)
 {
-	char *str;
+	char *nstr;
 	unsigned int len, i;
 
 	/* check is str is null */
