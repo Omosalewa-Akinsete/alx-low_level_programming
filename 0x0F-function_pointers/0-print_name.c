@@ -1,9 +1,9 @@
 #include "function_pointers.h"
 
 /**
- * print_name_as_is - prints a name as is
- * @f: variable to hold string name
+ * print_name - a function that prints a name.
  * @name: name of the person
+ * @f: variable to hold string name
  *
  * Return: void
  */
