@@ -1,38 +1,61 @@
+#include <stdio.h>
 #include "lists.h"
 #include <stdlib.h>
 
 /**
- * free_listint_safe -  Frees a listint_t list.
- * @h: The pointer to a pointer to the header of the linker list.
- *
- * Returns: The size of the list that was freed.
- *	If a loop is detected, the function sets the head of the NULL and returns 0.
+ * free_listint_safe - A function that frees a list
+ * @h: A pointer listint_t structure
+ * Return: The size of the list that was free'd
  */
 size_t free_listint_safe(listint_t **h)
 {
-	size_t size = 0;
-	listint_t *current, *temp;
-	listint_t *loop_node = NULL;
+	listint_t *slow, *fast, *temp;
+	size_t count = 0;
 
-	current = *h;
+	slow = *h;
+	fast = *h;
 
-	while (current)
+	while (slow && fast && fast->next)
 	{
-		size++;
+		slow = slow->next;
+		fast = fast->next->next;
 
-		if (current >= loop_node)
+		if (slow == fast)
 		{
+			slow = slow->next;
 
-			*h = NULL;
-			break;
+			while (slow != fast)
+			{
+				count++;
+				slow = slow->next;
+			}
+			slow = *h;
+			while (slow != fast)
+			{
+				slow = slow->next;
+				temp = fast->next;
+				free(fast);
+			}
+			temp = fast->next;
+			free(fast);
+			fast = temp;
 		}
-
-		loop_node = current;
-		temp = current->next;
-		free(current);
-		current = temp;
+		while (fast->next != slow)
+		{
+			free(fast);
+			*h = NULL;
+			return (count);
+		}
 	}
+/**	size_t count = 0;*/
 
+	while (*h)
+	{
+		temp = (*h)->next;
+		free(*h);
+		*h = temp;
+		count++;
+	}
 	*h = NULL;
-	return (size);
+	return (count);
 }
