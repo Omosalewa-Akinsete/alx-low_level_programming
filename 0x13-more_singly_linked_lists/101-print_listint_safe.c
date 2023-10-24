@@ -1,41 +1,33 @@
 #include "lists.h"
 #include <stdio.h>
 #include <stdlib.h>
+
 /**
  * print_listint_safe - Prints a listint_t linked list.
- * @head: A pointer to the header of a linked list.
- * Return: Always 0.
+ * @head: A pointer to the head of the linked list.
+ *
+ * Return: The number of nodes in the list.
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *slower, *faster;
-	size_t count = 0;
+	const listint_t *slow = head;
+	const listint_t *fast = head;
+	size_t num_nodes = 0;
 
-	slower = head;
-	faster = head;
-
-	while (slower && faster && faster->next)
+	while (fast != NULL && fast->next != NULL)
 	{
-		printf("%d\n", slower->n);
-		slower = slower->next;
-		faster = faster->next->next;
+		slow = slow->next;
+		fast = fast->next->next;
 
-		if (slower == faster)
+		if (slow == fast)
 		{
-			printf("-> [%p] %d\n", (void *)faster, faster->n);
+			printf("Loop detected, exiting with status 98\n");
 			exit(98);
 		}
-	}
-	if (!faster)
-	{
-		return (0);
+
+		printf("[%p] %d\n", (void *)slow, slow->n);
+		num_nodes++;
 	}
 
-	while (slower != NULL)
-	{
-		printf("%d\n", slower->n);
-		slower = slower->next;
-		count++;
-	}
-	return (count);
+	return (num_nodes);
 }
