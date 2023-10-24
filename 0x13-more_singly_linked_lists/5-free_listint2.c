@@ -4,6 +4,7 @@
 /**
  * free_listint2 - Frees a listint_t list.
  * @head: The pointer to a pointer to the head of a linked list.
+ * Return: Always 0.
  */
 void free_listint2(listint_t **head)
 {
