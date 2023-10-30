@@ -20,7 +20,7 @@ int create_file(const char *filename, char *text_content)
 	if (filename == NULL)
 		return (-1);
 
-	fd = open(filename, 0_CREAT | 0_TRUNC | 0_WRONLY, file_permissions);
+	fd = open(filename, O_CREAT | O_TRUNC | O_WRONLY, file_permissions);
 	if (fd == -1)
 		return (-1);
 
