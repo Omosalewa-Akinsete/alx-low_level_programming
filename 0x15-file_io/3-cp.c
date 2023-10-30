@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 	int fd_from, fd_to;
 	ssize_t bytes_read, bytes_written;
 
-	char buffer[BUF_SIZE];
+	char buffer[1024];
 
 	if (argc != 3)
 	{
@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 		exit_with_error(99, "Error: Can't write to file");
 	}
 
-	while ((bytes_read = read(fd_from, buffer, BUF_SIZE)) > 0)
+	while ((bytes_read = read(fd_from, buffer, 1024)) > 0)
 	{
 		bytes_written = write(fd_to, buffer, bytes_read);
 	}
