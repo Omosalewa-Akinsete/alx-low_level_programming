@@ -1,4 +1,4 @@
-This repository contains projects on Low-level programming and Algorithm - Hatching out
+This repository contains projects on Low-level programming and Algorithm - Hatching out, Low-level programming and Algorithm - Data structrures and Algorithms and Low-level programming and Algorithm - Linux and Unix system programming
 
 0. 0x00. C - Hello, World
 
