@@ -1,6 +1,4 @@
 #include "lists.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 /**
  * insert_dnodeint_at_index - Inserts a new node at a given position
@@ -12,42 +10,44 @@
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *new_node, *current = *h;
-	unsigned int i;
+	dlistint_t *fnew;
+	dlistint_t *fhead;
+	unsigned int f;
 
-	new_node = malloc(sizeof(dlistint_t));
-	if (new_node == NULL)
-		return (NULL);
-
-	new_node->n = n;
-	new_node->prev = NULL;
-	new_node->next = NULL;
-
+	fnew = NULL;
 	if (idx == 0)
+		fnew = add_dnodeint(h, n);
+	else
 	{
-		new_node->next = *h;
-		if (*h != NULL)
-			(*h)->prev = new_node;
-		*h = new_node;
-		return (new_node);
-	}
-
-	for (i = 0; i < idx - 1; i++)
-	{
-		if (current == NULL)
+		fhead = *h;
+		f = 1;
+		if (fhead != NULL)
+			while (fhead->prev != NULL)
+				fhead = fhead->prev;
+		while (fhead != NULL)
 		{
-			free(new_node);
-			return (NULL);
+			if (f == idx)
+			{
+				if (fhead->next == NULL)
+					fnew = add_dnodeint_end(h, n);
+				else
+				{
+					fnew = malloc(sizeof(dlistint_t));
+					if (fnew != NULL)
+					{
+						fnew->n = n;
+						fnew->next = fhead->next;
+						fnew->prev = fhead;
+						fhead->next->prev = fnew;
+						fhead->next = fnew;
+					}
+				}
+				break;
+			}
+			fhead = fhead->next;
+			f++;
 		}
-		current = current->next;
 	}
 
-	new_node->next = current->next;
-	if (current->next != NULL)
-		current->next->prev = new_node;
-
-	new_node->prev = current;
-	new_node->next = new_node;
-
-	return (new_node);
+	return (fnew);
 }
