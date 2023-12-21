@@ -34,6 +34,16 @@ and value is the value associated with the key. value must be duplicated. value 
 Returns: 1 if it succeeded, 0 otherwise
 In case of collision, add the new node at the beginning of the list
 
+If you want to test for collisions, here are some strings that collide using the djb2 algorithm:
+
+hetairas collides with mentioner
+heliotropes collides with neurospora
+depravement collides with serafins
+stylist collides with subgenera
+joyful collides with synaphea
+redescribed collides with urites
+dram collides with vivency
+
 4. >>> ht['betty']
 Write a function that retrieves a value associated with a key.
 
