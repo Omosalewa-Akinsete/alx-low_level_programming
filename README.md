@@ -45,3 +45,5 @@ This repository contains projects on Low-level programming and Algorithm - Hatch
 21. 0x17-doubly_linked_lists
 
 22. 0x18. C - Dynamic libraries
+
+23. 0x1A. C - Hash tables
