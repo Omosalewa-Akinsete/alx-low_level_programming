@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "search_algos.h"
+#include <math.h>
 
 /**
  * struct listint_s - singly linked list
