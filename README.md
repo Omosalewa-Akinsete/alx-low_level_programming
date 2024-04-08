@@ -49,3 +49,5 @@ This repository contains projects on Low-level programming and Algorithm - Hatch
 23. 0x1A. C - Hash tables
 
 24. 0x1C. C - Makefiles
+
+25. 0x1E. C - Search Algorithms
